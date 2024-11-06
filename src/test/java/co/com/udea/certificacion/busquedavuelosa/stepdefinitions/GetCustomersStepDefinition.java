@@ -35,6 +35,7 @@ public class GetCustomersStepDefinition {
     @Then("I can see all information about the customers")
     public void iCanSeeAllInformationAboutTheCustomers() {
         usuario.should(seeThatResponse(response -> response.statusCode(200)
+                .body("[0].name", Matchers.equalTo("Juan Perez Modificado"))
                 .body("[1].phoneNumber", Matchers.equalTo("34796521862222"))
         ));
     }
