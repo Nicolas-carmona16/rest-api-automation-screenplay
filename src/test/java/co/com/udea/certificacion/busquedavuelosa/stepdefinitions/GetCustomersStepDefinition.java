@@ -1,12 +1,13 @@
 package co.com.udea.certificacion.busquedavuelosa.stepdefinitions;
 
 import io.cucumber.java.Before;
-import io.cucumber.java.en.Given;
-import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
-public class StepDefinition {
+public class GetCustomerStepDefinition {
+
+    Actor usuario = Actor.named("usuario");
 
     @Before
     public void config(){
