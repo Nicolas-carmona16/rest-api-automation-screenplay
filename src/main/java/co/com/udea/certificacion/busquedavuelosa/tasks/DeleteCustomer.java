@@ -7,19 +7,23 @@ import net.serenitybdd.screenplay.rest.interactions.Delete;
 
 public class DeleteCustomer implements Task {
 
-    private static final int CUSTOMER_ID = 39;
+    private final int customerId;
+
+    public DeleteCustomer(int customerId) {
+        this.customerId = customerId;
+    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Delete.from("/customers/" + CUSTOMER_ID)
+                Delete.from("/customers/" + customerId)
                         .with(request -> request
                                 .header("Content-Type", "application/json")
                                 .relaxedHTTPSValidation())
         );
     }
 
-    public static DeleteCustomer withId() {
-        return Tasks.instrumented(DeleteCustomer.class);
+    public static DeleteCustomer withId(int customerId) {
+        return Tasks.instrumented(DeleteCustomer.class, customerId);
     }
 }

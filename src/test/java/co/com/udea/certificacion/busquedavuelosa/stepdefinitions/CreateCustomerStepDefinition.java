@@ -50,10 +50,10 @@ public class CreateCustomerStepDefinition {
                 )
         );
     }
-    @And("I should see a response status code 201")
-    public void iShouldSeeResponseStatusCode201() {
+    @Then("I should see a response status code {int}")
+    public void iShouldSeeResponseStatusCode201(int expectedStatusCode) {
         usuario.should(
-                seeThatResponse(response -> response.statusCode(201)
+                seeThatResponse(response -> response.statusCode(expectedStatusCode)
                 )
         );
     }

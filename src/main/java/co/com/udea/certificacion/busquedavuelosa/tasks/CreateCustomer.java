@@ -30,6 +30,7 @@ public class CreateCustomer implements Task {
                         .with(request -> request
                                 .header("Content-Type", "application/json")
                                 .body(customerDataJson)
+                                .relaxedHTTPSValidation()
                         )
         );
     }

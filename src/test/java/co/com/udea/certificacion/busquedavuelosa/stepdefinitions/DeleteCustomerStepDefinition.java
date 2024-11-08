@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.hamcrest.Matchers;
 
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
@@ -25,14 +26,21 @@ public class DeleteCustomerStepDefinition {
     public void iAmConnectedToTheCustomerService2() {
         usuario.attemptsTo(ConnectTo.theService());
     }
-    @When("I delete a customer with an existing id")
-    public void iDeleteACustomerWithAnExistingId() {
-        usuario.attemptsTo(DeleteCustomer.withId());
+    @When("I delete a customer with id {int}")
+    public void iDeleteACustomerWithId(int customerId) {
+        usuario.attemptsTo(DeleteCustomer.withId(customerId));
     }
-    @Then("the response status code should be 204")
-    public void theResponseStatusCodeShouldBe204() {
+    @Then("the response status code should be {int}")
+    public void theResponseStatusCodeShouldBe(int expectedStatusCode) {
         usuario.should(
-                seeThatResponse(response -> response.statusCode(204))
+                seeThatResponse(response -> response.statusCode(expectedStatusCode))
+        );
+    }
+    @Then("The response should contain a message {string}")
+    public void theResponseShouldContainAMessage(String expectedErrorMessage) {
+        usuario.should(
+                seeThatResponse(response -> response.body(Matchers.equalTo(expectedErrorMessage))
+                )
         );
     }
 }

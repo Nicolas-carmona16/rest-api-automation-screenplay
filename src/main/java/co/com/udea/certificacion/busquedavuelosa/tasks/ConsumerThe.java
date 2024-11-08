@@ -13,6 +13,7 @@ public class ConsumerThe implements Task {
                 Get.resource(Getof).with(
                         request -> request.relaxedHTTPSValidation()
                                 .formParam("Grant_type", "Typer_value")
+                                .relaxedHTTPSValidation()
                 )
         );
     }
