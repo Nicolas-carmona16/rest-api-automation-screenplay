@@ -30,17 +30,16 @@ public class DeleteCustomerStepDefinition {
     public void iDeleteACustomerWithId(int customerId) {
         usuario.attemptsTo(DeleteCustomer.withId(customerId));
     }
-    @Then("the response status code should be {int}")
-    public void theResponseStatusCodeShouldBe(int expectedStatusCode) {
-        usuario.should(
-                seeThatResponse(response -> response.statusCode(expectedStatusCode))
+    @Then("The delete response status code should be {int}")
+    public void theDeleteResponseStatusCodeShouldBe(int expectedStatusCode) {
+        usuario.should(seeThatResponse(response -> response
+                .statusCode(expectedStatusCode))
         );
     }
-    @Then("The response should contain a message {string}")
-    public void theResponseShouldContainAMessage(String expectedErrorMessage) {
-        usuario.should(
-                seeThatResponse(response -> response.body(Matchers.equalTo(expectedErrorMessage))
-                )
-        );
+    @Then("The delete response should contain an error message {string}")
+    public void theDeleteResponseShouldContainAnErrorMessage(String expectedErrorMessage) {
+        usuario.should(seeThatResponse(response -> response
+                        .body(Matchers.equalTo(expectedErrorMessage))
+        ));
     }
 }

@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class As a user, I need to delete a customer in the store's customer service</title>
+<title>Test results - Class As a user, I need to create a customer in the store's customer service</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class As a user, I need to delete a customer in the store's customer service</h1>
+<h1>Class As a user, I need to create a customer in the store's customer service</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/default-package.html">default-package</a> &gt; As a user, I need to delete a customer in the store's customer service</div>
+<a href="../packages/default-package.html">default-package</a> &gt; As a user, I need to create a customer in the store's customer service</div>
 <div id="summary">
 <table>
 <tr>
@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.384s</div>
+<div class="counter">5.523s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,34 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard error</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="Attempt to create a customer with all fields empty"></a>
+<h3 class="failures">Attempt to create a customer with all fields empty</h3>
+<span class="code">
+<pre>java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;400&gt; but was &lt;201&gt;.
+
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:38)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:32)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:397)
+	at co.com.udea.certificacion.busquedavuelosa.stepdefinitions.CreateCustomerStepDefinition.theCreateResponseStatusCodeShouldBe(CreateCustomerStepDefinition.java:53)
+	at ✽.The create response status code should be 400(file:///C:/Users/Nicolas/Desktop/Universidad/UdeA/Semestre%202024-2/Calidad/ProyectosScreenPlay/01/rest-api-automation-screenplay/src/test/resources/features/create_customer.feature:19)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -78,18 +99,18 @@
 </tr>
 </thead>
 <tr>
-<td class="success">Attempt to delete a non-existing customer</td>
-<td class="success">0.648s</td>
-<td class="success">passed</td>
+<td class="failures">Attempt to create a customer with all fields empty</td>
+<td class="failures">0.787s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
-<td class="success">delete an existing customer successfully</td>
-<td class="success">0.736s</td>
+<td class="success">create a new customer successfully</td>
+<td class="success">4.736s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
 <pre>[Test worker] INFO  - 
@@ -98,7 +119,7 @@
    | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
    |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
 
-delete an existing customer successfully(as-a-user--i-need-to-delete-a-customer-in-the-store-s-customer-service;delete-an-existing-customer-successfully)
+create a new customer successfully(as-a-user--i-need-to-create-a-customer-in-the-store-s-customer-service;create-a-new-customer-successfully)
 --------------------------------------------------------------------------------
 [Test worker] INFO  - 
   _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
@@ -106,7 +127,7 @@ delete an existing customer successfully(as-a-user--i-need-to-delete-a-customer-
    | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
    |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
 
-delete an existing customer successfully
+create a new customer successfully
 ----------------------------------------------------------------------
 [Test worker] INFO  - 
   _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
@@ -114,16 +135,18 @@ delete an existing customer successfully
    | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
    |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
 
-Attempt to delete a non-existing customer(as-a-user--i-need-to-delete-a-customer-in-the-store-s-customer-service;attempt-to-delete-a-non-existing-customer)
+Attempt to create a customer with all fields empty(as-a-user--i-need-to-create-a-customer-in-the-store-s-customer-service;attempt-to-create-a-customer-with-all-fields-empty)
 --------------------------------------------------------------------------------
-[Test worker] INFO  - 
-  _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
- |_   _| | __| / __| |_   _|   | _ \   /_\   / __| / __| | __| |   \ 
-   | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
-   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
+[Test worker] ERROR  - 
+  _____   ___   ___   _____     ___     _     ___   _      ___   ___  
+ |_   _| | __| / __| |_   _|   | __|   /_\   |_ _| | |    | __| |   \ 
+   | |   | _|  \__ \   | |     | _|   / _ \   | |  | |__  | _|  | |) |
+   |_|   |___| |___/   |_|     |_|   /_/ \_\ |___| |____| |___| |___/ 
 
-Attempt to delete a non-existing customer
-----------------------------------------------------------------------
+Attempt to create a customer with all fields empty
+-----------------------------------------------------------------------
+[Test worker] ERROR  -     Test failed at step: A valid response is returned
+[Test worker] ERROR  -     1 expectation failed.Expected status code &lt;400&gt; but was &lt;201&gt;.
 </pre>
 </span>
 </div>

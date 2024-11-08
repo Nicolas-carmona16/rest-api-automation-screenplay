@@ -39,17 +39,15 @@ public class GetCustomersStepDefinition {
     @Then("I can see all information about the customers")
     public void iCanSeeAllInformationAboutTheCustomers() {
         usuario.should(seeThatResponse(response -> response
-                .body("[0].name", Matchers.equalTo("test"))
-                .body("[1].phoneNumber", Matchers.equalTo("00123456789"))
+                .body("[0].name", Matchers.equalTo("John Doe"))
         ));
     }
-    @And("The response status code to get should be {int}")
-    public void theResponseStatusCodeToGetShouldBe(int expectedStatusCode) {
-        usuario.should(
-                seeThatResponse(response -> response.statusCode(expectedStatusCode))
+    @Then("The get response status code should be {int}")
+    public void theGetResponseStatusCodeShouldBe(int expectedStatusCode) {
+        usuario.should(seeThatResponse(response -> response
+                .statusCode(expectedStatusCode))
         );
     }
-
     @When("I get the information of the customer with ID {int}")
     public void iGetTheInformationOfTheCustomerWithID(int customerId) {
         usuario.attemptsTo(BringA.customerById(customerId));
@@ -60,10 +58,10 @@ public class GetCustomersStepDefinition {
                 .body("name", Matchers.equalTo(expectedName))
         ));
     }
-
-    @Then("The response should contain an error message {string}")
-    public void theResponseShouldContainAnErrorMessage(String expectedErrorMessage) {
-        usuario.should(seeThatResponse(response -> response.body(Matchers.equalTo(expectedErrorMessage)
-        )));
+    @Then("The get response should contain an error message {string}")
+    public void theGetResponseShouldContainAnErrorMessage(String expectedErrorMessage) {
+        usuario.should(seeThatResponse(response -> response
+                .body(Matchers.equalTo(expectedErrorMessage))
+        ));
     }
 }

@@ -7,17 +7,27 @@ import net.serenitybdd.screenplay.rest.interactions.Put;
 
 public class UpdateCustomer implements Task {
 
-    private static final int CUSTOMER_ID = 44;
+    private final int customerId;
+    private final String name;
+    private final String email;
+    private final String phoneNumber;
+
+    public UpdateCustomer(int customerId, String name, String email, String phoneNumber) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         String updateCustomerData = "{"
-                + "\"name\": \"Jane Doe\","
-                + "\"email\": \"jane.doe@example.com\","
-                + "\"phoneNumber\": \"0987654321\""
+                + "\"name\": \"" + name + "\","
+                + "\"email\": \"" + email + "\","
+                + "\"phoneNumber\": \"" + phoneNumber + "\""
                 + "}";
         actor.attemptsTo(
-                Put.to("/customers/" + CUSTOMER_ID)
+                Put.to("/customers/" + customerId)
                         .with(request -> request
                                 .header("Content-Type", "application/json")
                                 .body(updateCustomerData)
@@ -25,7 +35,7 @@ public class UpdateCustomer implements Task {
         );
     }
 
-    public static UpdateCustomer withId() {
-        return Tasks.instrumented(UpdateCustomer.class);
+    public static UpdateCustomer withData(int customerId, String name, String email, String phoneNumber) {
+        return Tasks.instrumented(UpdateCustomer.class, customerId, name, email, phoneNumber);
     }
 }

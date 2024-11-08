@@ -44,17 +44,20 @@ public class CreateCustomerStepDefinition {
     }
     @Then("the response body should contain the created customer's ID")
     public void theResponseBodyShouldContainTheCreatedCustomersId() {
-        usuario.should(
-                seeThatResponse("The response should contain the customer's ID",
-                        response -> response.body("id", Matchers.notNullValue())
-                )
-        );
+        usuario.should(seeThatResponse(response -> response
+                        .body("id", Matchers.notNullValue())
+        ));
     }
-    @Then("I should see a response status code {int}")
-    public void iShouldSeeResponseStatusCode201(int expectedStatusCode) {
-        usuario.should(
-                seeThatResponse(response -> response.statusCode(expectedStatusCode)
-                )
-        );
+    @Then("The create response status code should be {int}")
+    public void theCreateResponseStatusCodeShouldBe(int expectedStatusCode) {
+        usuario.should(seeThatResponse(response -> response
+                        .statusCode(expectedStatusCode)
+        ));
+    }
+    @Then("The create response should contain an error message {string}")
+    public void theCreateResponseShouldContainAnErrorMessage(String expectedErrorMessage) {
+        usuario.should(seeThatResponse(response -> response
+                .body(Matchers.equalTo(expectedErrorMessage))
+        ));
     }
 }
