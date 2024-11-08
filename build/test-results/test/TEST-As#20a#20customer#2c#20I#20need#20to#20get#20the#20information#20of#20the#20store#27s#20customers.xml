@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="As a user, I need to update a customer in the store's customer service" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-06T17:40:49" hostname="LAPTOP-NDELRLE7" time="4.818">
+<testsuite name="As a customer, I need to get the information of the store's customers" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-08T01:41:40" hostname="LAPTOP-NDELRLE7" time="4.802">
   <properties/>
-  <testcase name="update an existing customer successfully" classname="As a user, I need to update a customer in the store's customer service" time="4.818"/>
+  <testcase name="get information about the store" classname="As a customer, I need to get the information of the store's customers" time="4.802"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[[Test worker] INFO  - 
   _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  
@@ -9,7 +9,7 @@
    | |   | _|  \__ \   | |     \__ \   | |    / _ \  |   /   | |   | _|  | |) |
    |_|   |___| |___/   |_|     |___/   |_|   /_/ \_\ |_|_\   |_|   |___| |___/ 
 
-update an existing customer successfully(as-a-user--i-need-to-update-a-customer-in-the-store-s-customer-service;update-an-existing-customer-successfully)
+get information about the store(as-a-customer--i-need-to-get-the-information-of-the-store-s-customers;get-information-about-the-store)
 --------------------------------------------------------------------------------
 [Test worker] INFO  - 
   _____   ___   ___   _____     ___     _     ___   ___   ___   ___  
@@ -17,7 +17,7 @@ update an existing customer successfully(as-a-user--i-need-to-update-a-customer-
    | |   | _|  \__ \   | |     |  _/  / _ \  \__ \ \__ \ | _|  | |) |
    |_|   |___| |___/   |_|     |_|   /_/ \_\ |___/ |___/ |___| |___/ 
 
-update an existing customer successfully
+get information about the store
 ----------------------------------------------------------------------
 ]]></system-err>
 </testsuite>
