@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="As a user, I need to create a customer in the store's customer service" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-08T04:15:21" hostname="LAPTOP-NDELRLE7" time="5.876">
+<testsuite name="As a user, I need to create a customer in the store's customer service" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-11-08T04:53:22" hostname="LAPTOP-NDELRLE7" time="4.671">
   <properties/>
-  <testcase name="create a new customer successfully" classname="As a user, I need to create a customer in the store's customer service" time="5.876"/>
+  <testcase name="create a new customer successfully" classname="As a user, I need to create a customer in the store's customer service" time="4.671"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[[Test worker] INFO  - 
   _____   ___   ___   _____     ___   _____     _     ___   _____   ___   ___  

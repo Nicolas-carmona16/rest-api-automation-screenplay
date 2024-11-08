@@ -7,12 +7,22 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 
 public class CreateCustomer implements Task {
 
+    private final String name;
+    private final String email;
+    private final String phoneNumber;
+
+    public CreateCustomer(String name, String email, String phoneNumber) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         String customerDataJson = "{"
-                + "\"name\": \"John Doe\","
-                + "\"email\": \"john@example.com\","
-                + "\"phoneNumber\": \"1234567890\""
+                + "\"name\": \"" + name + "\","
+                + "\"email\": \"" + email + "\","
+                + "\"phoneNumber\": \"" + phoneNumber + "\""
                 + "}";
 
         actor.attemptsTo(
@@ -24,7 +34,7 @@ public class CreateCustomer implements Task {
         );
     }
 
-    public static CreateCustomer withData() {
-        return Tasks.instrumented(CreateCustomer.class);
+    public static CreateCustomer withData(String name, String email, String phoneNumber) {
+        return Tasks.instrumented(CreateCustomer.class, name, email, phoneNumber);
     }
 }

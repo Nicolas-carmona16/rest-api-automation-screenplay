@@ -5,6 +5,8 @@
 
     Scenario: create a new customer successfully
       Given I am connected to the customer service
-      When I create a customer
+      When I create a customer with the following data:
+        | name       | email             | phoneNumber |
+        | hannah Doe   | hannah@example.com  | 0123456789  |
       Then the response body should contain the created customer's ID
       And I should see a response status code 201
