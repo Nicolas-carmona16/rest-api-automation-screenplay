@@ -1,18 +1,21 @@
 package co.com.udea.certificacion.busquedavuelosa.stepdefinitions;
 
+import co.com.udea.certificacion.busquedavuelosa.tasks.BringA;
 import co.com.udea.certificacion.busquedavuelosa.tasks.ConnectTo;
 import co.com.udea.certificacion.busquedavuelosa.tasks.ConsumerThe;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.hamcrest.Matchers;
 
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
-import static org.hamcrest.Matchers.hasItems;
 
 public class GetCustomersStepDefinition {
 
@@ -22,6 +25,7 @@ public class GetCustomersStepDefinition {
     public void config(){
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("usuario");
+        RestAssured.registerParser("text/plain", Parser.TEXT);
     }
 
     @Given("I am connect to capacities of the service")
@@ -34,10 +38,32 @@ public class GetCustomersStepDefinition {
     }
     @Then("I can see all information about the customers")
     public void iCanSeeAllInformationAboutTheCustomers() {
-        usuario.should(seeThatResponse(response -> response.statusCode(200)
+        usuario.should(seeThatResponse(response -> response
                 .body("[0].name", Matchers.equalTo("test"))
                 .body("[1].phoneNumber", Matchers.equalTo("00123456789"))
         ));
     }
+    @And("The response status code to get should be {int}")
+    public void theResponseStatusCodeToGetShouldBe(int expectedStatusCode) {
+        usuario.should(
+                seeThatResponse(response -> response.statusCode(expectedStatusCode))
+        );
+    }
 
+    @When("I get the information of the customer with ID {int}")
+    public void iGetTheInformationOfTheCustomerWithID(int customerId) {
+        usuario.attemptsTo(BringA.customerById(customerId));
+    }
+    @Then("I can see the customer's name as {string}")
+    public void iCanSeeTheCustomerNameAs(String expectedName) {
+        usuario.should(seeThatResponse(response -> response
+                .body("name", Matchers.equalTo(expectedName))
+        ));
+    }
+
+    @Then("The response should contain an error message {string}")
+    public void theResponseShouldContainAnErrorMessage(String expectedErrorMessage) {
+        usuario.should(seeThatResponse(response -> response.body(Matchers.equalTo(expectedErrorMessage)
+        )));
+    }
 }
