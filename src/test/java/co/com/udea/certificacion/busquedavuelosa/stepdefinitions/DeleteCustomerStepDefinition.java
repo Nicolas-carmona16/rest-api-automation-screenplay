@@ -22,8 +22,8 @@ public class DeleteCustomerStepDefinition {
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("usuario");
     }
-    @Given("I am connected to the customer service 2")
-    public void iAmConnectedToTheCustomerService2() {
+    @Given("I am connected to the server")
+    public void iAmConnectedToTheServer() {
         usuario.attemptsTo(ConnectTo.theService());
     }
     @When("I delete a customer with id {int}")

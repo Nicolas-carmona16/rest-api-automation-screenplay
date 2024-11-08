@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="As a user, I need to create a customer in the store's customer service" skipped="0" tests="2" time="0.87" timestamp="2024-11-08 01:16:15"><testcase name="create a new customer successfully"/><testcase name="Attempt to create a customer with all fields empty"><failure message="1 expectation failed.&#10;Expected status code &lt;400&gt; but was &lt;201&gt;.&#10;" type="java.lang.AssertionError">1 expectation failed.
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="As a user, I need to create a customer in the store's customer service" skipped="0" tests="2" time="0.87" timestamp="2024-11-08 01:34:58"><testcase name="create a new customer successfully"/><testcase name="Attempt to create a customer with all fields empty"><failure message="1 expectation failed.&#10;Expected status code &lt;400&gt; but was &lt;201&gt;.&#10;" type="java.lang.AssertionError">1 expectation failed.
 Expected status code &lt;400&gt; but was &lt;201&gt;.
 </failure><system-err>1 expectation failed.
 Expected status code &lt;400&gt; but was &lt;201&gt;.
